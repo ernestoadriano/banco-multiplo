@@ -20,9 +20,6 @@ public abstract class Pessoa {
     private String numero_telefone;
     private String nuit;
 
-    @OneToOne
-    @JoinColumn(name = "id_utilizador", unique = true)
-    private Utilizador utilizador;
 
     public Long getId() {
         return id;
@@ -88,11 +85,4 @@ public abstract class Pessoa {
         this.nuit = nuit;
     }
 
-    public Utilizador getUtilizador() {
-        return utilizador;
-    }
-
-    public void setUtilizador(Utilizador utilizador) {
-        this.utilizador = utilizador;
-    }
 }

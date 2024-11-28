@@ -2,9 +2,8 @@ package com.ernesto.banco_multiplo.model;
 
 import jakarta.persistence.*;
 
-@Entity
-@Table(name = "utilizador")
-public class Utilizador {
+@MappedSuperclass
+public abstract class Utilizador {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,9 +15,6 @@ public class Utilizador {
     @Column(nullable = false)
     private String palavra_passe;
 
-    @OneToOne
-    @JoinColumn(name = "id_pessoa", unique = true)
-    private Pessoa pessoa;
 
     public Long getId() {
         return id;
@@ -42,13 +38,5 @@ public class Utilizador {
 
     public void setPalavra_passe(String palavra_passe) {
         this.palavra_passe = palavra_passe;
-    }
-
-    public Pessoa getPessoa() {
-        return pessoa;
-    }
-
-    public void setPessoa(Pessoa pessoa) {
-        this.pessoa = pessoa;
     }
 }
