@@ -22,7 +22,7 @@ public class ClienteService {
         return clienteRepository.findById(id).get();
     }
 
-    public List<Cliente> insert(Cliente cliente) {
+    public List<Cliente> jinsert(Cliente cliente) {
         cliente.setData_registo(new Date());
         clienteRepository.saveAndFlush(cliente);
         return getAll();
