@@ -8,8 +8,8 @@ import java.util.Date;
 public abstract class Conta_Banco {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private String numero_conta;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long numero_conta;
     @Temporal(TemporalType.TIMESTAMP)
     private Date data_abertura;
     private Double saldo;
@@ -18,11 +18,11 @@ public abstract class Conta_Banco {
     @JoinColumn(name = "id_cliente")
     private Cliente cliente;
 
-    public String getNumero_conta() {
+    public Long getNumero_conta() {
         return numero_conta;
     }
 
-    public void setNumero_conta(String numero_conta) {
+    public void setNumero_conta(Long numero_conta) {
         this.numero_conta = numero_conta;
     }
 

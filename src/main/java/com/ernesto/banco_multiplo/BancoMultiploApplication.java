@@ -10,5 +10,4 @@ public class BancoMultiploApplication {
 		SpringApplication.run(BancoMultiploApplication.class, args);
 		System.out.println("RUNNING!");
 	}
-
 }
