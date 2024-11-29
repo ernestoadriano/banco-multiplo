@@ -1,9 +1,7 @@
 package com.ernesto.banco_multiplo.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
+import com.ernesto.banco_multiplo.model.enum_.TipoFuncionario;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "funcionario")
@@ -13,15 +11,10 @@ public class Funcionario extends Pessoa{
     @JoinColumn(name = "id_utilizador_funcionario")
     private UtilizadorFuncionario utilizadorFuncionario;
 
-    private String tipo_funcionario;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "tipo_funcionario")
+    private TipoFuncionario tipoFuncionario;
 
-    public String getTipo_funcionario() {
-        return tipo_funcionario;
-    }
-
-    public void setTipo_funcionario(String tipo_funcionario) {
-        this.tipo_funcionario = tipo_funcionario;
-    }
 
     public UtilizadorFuncionario getUtilizadorFuncionario() {
         return utilizadorFuncionario;
