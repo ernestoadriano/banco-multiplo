@@ -18,7 +18,7 @@ public class ContaOrdemService {
         return contaOrdemRepository.findAll();
     }
 
-    public ContaOrdem getById(String id) {
+    public ContaOrdem getById(Long id) {
         return contaOrdemRepository.findById(id).get();
     }
 
@@ -33,7 +33,7 @@ public class ContaOrdemService {
         return getAll();
     }
 
-    public List<ContaOrdem> delete(String id) {
+    public List<ContaOrdem> delete(Long id) {
         ContaOrdem contaOrdem = contaOrdemRepository.findById(id).get();
         contaOrdemRepository.delete(contaOrdem);
         return getAll();

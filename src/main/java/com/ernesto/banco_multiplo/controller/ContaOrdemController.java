@@ -20,7 +20,7 @@ public class ContaOrdemController {
     }
 
     @GetMapping("/get/{id}")
-    public ContaOrdem getById(@PathVariable("id") String id) {
+    public ContaOrdem getById(@PathVariable("id") Long id) {
         return contaOrdemService.getById(id);
     }
 
@@ -35,7 +35,7 @@ public class ContaOrdemController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public List<ContaOrdem> delete(@PathVariable("id") String id) {
+    public List<ContaOrdem> delete(@PathVariable("id") Long id) {
         return contaOrdemService.delete(id);
     }
 }

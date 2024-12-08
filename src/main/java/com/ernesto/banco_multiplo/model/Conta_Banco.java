@@ -9,7 +9,7 @@ public abstract class Conta_Banco {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long numero_conta;
+    private Long id;
     @Temporal(TemporalType.TIMESTAMP)
     private Date data_abertura;
     private Double saldo;
@@ -18,12 +18,12 @@ public abstract class Conta_Banco {
     @JoinColumn(name = "id_cliente")
     private Cliente cliente;
 
-    public Long getNumero_conta() {
-        return numero_conta;
+    public Long getId() {
+        return id;
     }
 
-    public void setNumero_conta(Long numero_conta) {
-        this.numero_conta = numero_conta;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Date getData_abertura() {
