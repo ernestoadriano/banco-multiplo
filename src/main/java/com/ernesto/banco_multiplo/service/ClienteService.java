@@ -1,11 +1,10 @@
 package com.ernesto.banco_multiplo.service;
 
-import com.ernesto.banco_multiplo.model.Cliente;
-import com.ernesto.banco_multiplo.repository.ClienteRepository;
+import com.ernesto.banco_multiplo.crud.model.Cliente;
+import com.ernesto.banco_multiplo.crud.repository.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
 import java.util.List;
 
 @Service
@@ -14,28 +13,31 @@ public class ClienteService {
     @Autowired
     private ClienteRepository clienteRepository;
 
+    public Cliente insert(Cliente cliente) {
+        return clienteRepository.saveAndFlush(cliente);
+    }
+
+    public Cliente update(Cliente cliente) {
+        return clienteRepository.saveAndFlush(cliente);
+    }
+
     public List<Cliente> getAll() {
         return clienteRepository.findAll();
     }
 
+    public Cliente getByNome(String nome) {
+        return clienteRepository.findByNome(nome)
+                .orElseThrow(() -> new RuntimeException("Cliente não encontrado!"));
+    }
+
     public Cliente getById(Long id) {
-        return clienteRepository.findById(id).get();
+        return clienteRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Cliente não encontrado!"));
     }
 
-    public List<Cliente> insert(Cliente cliente) {
-        cliente.setData_registo(new Date());
-        clienteRepository.saveAndFlush(cliente);
-        return getAll();
-    }
-
-    public List<Cliente> update(Cliente cliente) {
-        clienteRepository.saveAndFlush(cliente);
-        return getAll();
-    }
-
-    public List<Cliente> delete(Long id) {
-        Cliente cliente = clienteRepository.findById(id).get();
+    public String delete(Long id) {
+        Cliente cliente = getById(id);
         clienteRepository.delete(cliente);
-        return getAll();
+        return "Cliente " + cliente.getNome() + " " + cliente.getApelido() + " removido com sucesso!";
     }
 }

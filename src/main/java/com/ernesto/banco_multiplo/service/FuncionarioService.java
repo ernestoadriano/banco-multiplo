@@ -1,12 +1,10 @@
 package com.ernesto.banco_multiplo.service;
 
-
-import com.ernesto.banco_multiplo.model.Funcionario;
-import com.ernesto.banco_multiplo.repository.FuncionarioRepository;
+import com.ernesto.banco_multiplo.crud.model.Funcionario;
+import com.ernesto.banco_multiplo.crud.repository.FuncionarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
 import java.util.List;
 
 @Service
@@ -20,25 +18,26 @@ public class FuncionarioService {
     }
 
     public Funcionario getById(Long id) {
-        return funcionarioRepository.findById(id).get();
+        return funcionarioRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Funcionário não encontrado!"));
     }
 
-    public List<Funcionario> insert(Funcionario funcionario) {
-        funcionario.setData_registo(new Date());
-        funcionarioRepository.saveAndFlush(funcionario);
-        return funcionarioRepository.findAll();
+    public Funcionario getByNome(String nome) {
+        return funcionarioRepository.findByNome(nome)
+                .orElseThrow(() -> new RuntimeException("Funcionário não encontrado!"));
     }
 
-    public List<Funcionario> update(Funcionario funcionario) {
-        Funcionario f = funcionarioRepository.findById(funcionario.getId()).get();
-        funcionario.setData_registo(f.getData_registo());
-        funcionarioRepository.saveAndFlush(funcionario);
-        return funcionarioRepository.findAll();
+    public Funcionario insert(Funcionario funcionario) {
+        return funcionarioRepository.saveAndFlush(funcionario);
     }
 
-    public List<Funcionario> delete(Long id) {
-        Funcionario funcionario = funcionarioRepository.findById(id).get();
+    public Funcionario update(Funcionario funcionario) {
+        return funcionarioRepository.saveAndFlush(funcionario);
+    }
+
+    public String delete(Long id) {
+        Funcionario funcionario = getById(id);
         funcionarioRepository.delete(funcionario);
-        return funcionarioRepository.findAll();
+        return "Funcionário Apagado!";
     }
 }
