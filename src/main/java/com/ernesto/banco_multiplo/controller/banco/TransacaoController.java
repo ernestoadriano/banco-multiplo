@@ -6,6 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+/*
+* @author: Ernesto Adriano
+* */
 
 @RestController
 @RequestMapping("/banco/transacao")
@@ -17,6 +20,16 @@ public class TransacaoController {
     @PostMapping("/transferencia")
     public Transacao transferencia(@RequestBody Transacao transacao) {
         return service.transferencia(transacao);
+    }
+
+    @PostMapping("/deposito")
+    public Transacao deposito(Transacao transacao) {
+        return service.deposito(transacao);
+    }
+
+    @PostMapping("/pagamento")
+    public Transacao pagamento(Transacao transacao) {
+        return service.pagamento(transacao);
     }
 
     @GetMapping("/get")

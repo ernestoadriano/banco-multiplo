@@ -1,5 +1,8 @@
 package com.ernesto.banco_multiplo.entity.enums;
 
+/*
+ * @author: Ernesto Adriano
+ * */
 public enum UserRole {
 
     ADMIN("admin"),

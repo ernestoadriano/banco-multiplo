@@ -4,7 +4,9 @@ import com.ernesto.banco_multiplo.entity.banco.ContaBanco;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-
+/*
+ * @author: Ernesto Adriano
+ * */
 @Repository
 public interface ContaBancoRepository extends JpaRepository<ContaBanco, String> {
 

@@ -2,7 +2,9 @@ package com.ernesto.banco_multiplo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
+/*
+ * @author: Ernesto Adriano
+ * */
 @SpringBootApplication
 public class BancoMultiploApplication {
 

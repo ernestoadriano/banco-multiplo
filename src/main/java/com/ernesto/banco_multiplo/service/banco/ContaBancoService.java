@@ -10,8 +10,10 @@ import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
-import java.util.UUID;
 
+/*
+ * @author: Ernesto Adriano
+ * */
 @Service
 public class ContaBancoService {
 

@@ -4,6 +4,9 @@ import com.ernesto.banco_multiplo.entity.user.User;
 import jakarta.persistence.*;
 
 import java.util.Date;
+/*
+ * @author: Ernesto Adriano
+ * */
 
 @MappedSuperclass
 public abstract class Pessoa {

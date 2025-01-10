@@ -6,6 +6,9 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
+/*
+ * @author: Ernesto Adriano
+ * */
 @Repository
 public interface FuncionarioRepository extends JpaRepository<Funcionario, String> {
 

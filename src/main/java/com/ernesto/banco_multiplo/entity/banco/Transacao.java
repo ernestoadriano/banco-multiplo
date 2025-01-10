@@ -5,6 +5,10 @@ import jakarta.persistence.*;
 
 import java.util.Date;
 
+/*
+ @author: Ernesto Adriano
+ * */
+
 @Entity
 @Table(name = "transacoes")
 public class Transacao {

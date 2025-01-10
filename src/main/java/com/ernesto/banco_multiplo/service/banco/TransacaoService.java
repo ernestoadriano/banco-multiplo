@@ -1,5 +1,8 @@
 package com.ernesto.banco_multiplo.service.banco;
 
+/*
+ * @author: Ernesto Adriano
+ * */
 import com.ernesto.banco_multiplo.entity.banco.ContaBanco;
 import com.ernesto.banco_multiplo.entity.banco.Transacao;
 import com.ernesto.banco_multiplo.entity.enums.TipoConta;

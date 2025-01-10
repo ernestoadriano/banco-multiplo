@@ -3,9 +3,12 @@ package com.ernesto.banco_multiplo.entity.banco;
 import com.ernesto.banco_multiplo.entity.enums.TipoConta;
 import jakarta.persistence.*;
 
-import java.math.BigDecimal;
 import java.util.Date;
-import java.util.UUID;
+
+
+/*
+ * @author: Ernesto Adriano
+ * */
 
 @Entity
 @Table(name = "contas_bancarias")
