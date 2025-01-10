@@ -1,6 +1,6 @@
-package com.ernesto.banco_multiplo.service;
+/*package com.ernesto.banco_multiplo.service;
 
-import com.ernesto.banco_multiplo.crud.repository.UserRepository;
+import com.ernesto.banco_multiplo.repository.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -9,11 +9,12 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class AuthorizationService implements UserDetailsService {
+
     @Autowired
     private UserRepository repository;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return repository.findByUsername(username);
+        return repository.findByLogin(username);
     }
-}
+}*/
