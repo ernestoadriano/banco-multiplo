@@ -1,6 +1,6 @@
 package com.ernesto.banco_multiplo.infra.security;
 
-/*import com.ernesto.banco_multiplo.repository.user.UserRepository;
+import com.ernesto.banco_multiplo.repository.user.UserRepository;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -15,10 +15,10 @@ import org.springframework.web.filter.OncePerRequestFilter;
 import java.io.IOException;
 
 
-@Component*/
-public class SecurityFilter /*extends OncePerRequestFilter*/ {
+@Component
+public class SecurityFilter extends OncePerRequestFilter {
 
-    /*@Autowired
+    @Autowired
     private TokenService tokenService;
 
     @Autowired
@@ -43,5 +43,5 @@ public class SecurityFilter /*extends OncePerRequestFilter*/ {
         var authHeader = request.getHeader("Authorization");
         if (authHeader == null) return null;
         return authHeader.replace("Bearer ", "");
-    }*/
+    }
 }

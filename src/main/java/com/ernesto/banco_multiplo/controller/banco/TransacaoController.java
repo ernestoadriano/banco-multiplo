@@ -23,12 +23,12 @@ public class TransacaoController {
     }
 
     @PostMapping("/deposito")
-    public Transacao deposito(Transacao transacao) {
+    public Transacao deposito(@RequestBody Transacao transacao) {
         return service.deposito(transacao);
     }
 
     @PostMapping("/pagamento")
-    public Transacao pagamento(Transacao transacao) {
+    public Transacao pagamento(@RequestBody Transacao transacao) {
         return service.pagamento(transacao);
     }
 

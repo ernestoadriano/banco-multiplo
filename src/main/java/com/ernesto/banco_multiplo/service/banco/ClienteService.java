@@ -1,6 +1,7 @@
 package com.ernesto.banco_multiplo.service.banco;
 
 import com.ernesto.banco_multiplo.entity.banco.Cliente;
+import com.ernesto.banco_multiplo.entity.user.User;
 import com.ernesto.banco_multiplo.repository.banco.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

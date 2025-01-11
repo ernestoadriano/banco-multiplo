@@ -4,16 +4,16 @@ import com.ernesto.banco_multiplo.entity.banco.Cliente;
 import com.ernesto.banco_multiplo.entity.banco.Funcionario;
 import com.ernesto.banco_multiplo.entity.enums.UserRole;
 import jakarta.persistence.*;
-/*import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;*/
+import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 import java.util.List;
 
 @Table(name = "users")
 @Entity
-public class User /*implements UserDetails */{
+public class User implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -60,10 +60,6 @@ public class User /*implements UserDetails */{
         this.login = login;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
     public void setPassword(String password) {
         this.password = password;
     }
@@ -92,7 +88,7 @@ public class User /*implements UserDetails */{
         this.cliente = cliente;
     }
 
-    /*@Override
+    @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         if (this.role == UserRole.ADMIN) return List.of(new SimpleGrantedAuthority("ROLE_ADMIN"), new SimpleGrantedAuthority("ROLE_USER"));
         else return List.of(new SimpleGrantedAuthority("ROLE_USER"));
@@ -126,5 +122,5 @@ public class User /*implements UserDetails */{
     @Override
     public boolean isEnabled() {
         return true;
-    }*/
+    }
 }
