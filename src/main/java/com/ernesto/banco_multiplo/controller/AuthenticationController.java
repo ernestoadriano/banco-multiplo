@@ -7,6 +7,7 @@ import com.ernesto.banco_multiplo.entity.user.LoginResponseDTO;
 import com.ernesto.banco_multiplo.entity.user.RegisterDTO;
 import com.ernesto.banco_multiplo.entity.user.User;
 import com.ernesto.banco_multiplo.infra.security.TokenService;
+import com.ernesto.banco_multiplo.repository.banco.ClienteRepository;
 import com.ernesto.banco_multiplo.repository.user.UserRepository;
 import com.ernesto.banco_multiplo.service.PasswordUtil;
 import com.ernesto.banco_multiplo.service.banco.ClienteService;
@@ -36,6 +37,9 @@ public class AuthenticationController {
     @Autowired
     private ClienteService clienteService;
 
+    @Autowired
+    private ClienteRepository clienteRepository;
+
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody AuthenticationDTO dto) {
         var usernamePassword = new UsernamePasswordAuthenticationToken(dto.login(), dto.password());
@@ -60,11 +64,13 @@ public class AuthenticationController {
     /*@PostMapping("/register_cliente/{id_cliente}")
     public ResponseEntity<?> register(@PathVariable("id_cliente") String id) {
         Cliente cliente = clienteService.getById(id);
-        if (this.repository.findByLogin(cliente.getEmail()) != null) return ResponseEntity.badRequest().build();
+        if (this.repository.findByLogin(cliente.getEmail()) != null)
+            return ResponseEntity.badRequest().build();
 
         String password = new PasswordUtil().generatePassword();
         String encryptedPassword = new BCryptPasswordEncoder().encode(password);
         User user = new User(cliente.getEmail(), encryptedPassword, UserRole.USER);
+        cliente.setUser(user);
         repository.saveAndFlush(user);
         return ResponseEntity.ok().build();
     }*/

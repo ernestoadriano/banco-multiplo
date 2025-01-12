@@ -29,7 +29,7 @@ public class SecurityConfigurations {
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/auth/register").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/auth/register_cliente").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.POST, "/banco/cliente/**").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.POST, "banco/conta/**").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.POST, "/banco/funcionario").hasRole("ADMIN")

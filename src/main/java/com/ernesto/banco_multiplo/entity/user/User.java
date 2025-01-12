@@ -29,12 +29,6 @@ public class User implements UserDetails {
     @Column(nullable = false, name = "role")
     private UserRole role;
 
-    @OneToOne(mappedBy = "user")
-    private Funcionario funcionario;
-
-    @OneToOne(mappedBy = "user")
-    private Cliente cliente;
-
     public User() {
     }
 
@@ -70,22 +64,6 @@ public class User implements UserDetails {
 
     public void setRole(UserRole role) {
         this.role = role;
-    }
-
-    public Funcionario getFuncionario() {
-        return funcionario;
-    }
-
-    public void setFuncionario(Funcionario funcionario) {
-        this.funcionario = funcionario;
-    }
-
-    public Cliente getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
     }
 
     @Override
