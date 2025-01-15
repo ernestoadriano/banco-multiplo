@@ -1,9 +1,14 @@
 package com.ernesto.banco_multiplo.service.banco;
 
 import com.ernesto.banco_multiplo.entity.banco.Cliente;
+import com.ernesto.banco_multiplo.entity.enums.UserRole;
 import com.ernesto.banco_multiplo.entity.user.User;
 import com.ernesto.banco_multiplo.repository.banco.ClienteRepository;
+import com.ernesto.banco_multiplo.repository.user.UserRepository;
+import com.ernesto.banco_multiplo.service.PasswordUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,6 +20,9 @@ public class ClienteService {
 
     @Autowired
     private ClienteRepository repository;
+
+    @Autowired
+    private UserRepository userRepository;
 
     public List<Cliente> getAll() {
         return repository.findAll();
@@ -31,6 +39,11 @@ public class ClienteService {
     }
 
     public Cliente insert(Cliente cliente) {
+        String password = new PasswordUtil().generatePassword();
+        String encryptedPassword = new BCryptPasswordEncoder().encode(password);
+        User user = new User(cliente.getEmail(), encryptedPassword, UserRole.USER);
+        cliente.setUser(user);
+        userRepository.saveAndFlush(user);
         return repository.saveAndFlush(cliente);
     }
 
